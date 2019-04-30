@@ -19,7 +19,7 @@ class App extends Component {
     super(props)
     this.playerChoice = this.playerChoice.bind(this)
     this.symbols = ["rock", "paper", "scissors", "lizard", "spock"]
-    this.state = {}
+    this.state = {playerRedDisplay: this.symbols[0], playerBlueDisplay: this.symbols[0]}
   }
 
   playerChoice = (move) => {
@@ -33,6 +33,11 @@ class App extends Component {
 
   decideWinner = () => {
     const {playerBlue, playerRed} = this.state
+    this.setState({
+      playerRedDisplay: this.state.playerRed,
+      playerBlueDisplay: this.state.playerBlue,
+      resultDisplay: this.state.playerRed + " versus " + this.state.playerBlue,
+    })
     console.log("playerRed: "+playerRed);
     console.log("playerBlue: "+playerBlue);
     if (playerRed === playerBlue){
@@ -72,14 +77,15 @@ class App extends Component {
       <div className="App">
         <PlayerCard
         color="red"
-        symbol={this.state.playerRed}
+        symbol={this.state.playerRedDisplay}
         />
         <PlayerCard
         color="blue"
-        symbol={this.state.playerBlue}
+        symbol={this.state.playerBlueDisplay}
         />
-        <p>{this.state.playerRed} {this.state.versus} {this.state.playerBlue}</p>
-        <p>{this.state.winner}</p>
+      <p>Debug: {this.state.playerRed} {this.state.versus} {this.state.playerBlue}</p>
+      <p>{this.state.resultDisplay}</p>
+      <p>{this.state.winner}</p>
         <div className="buttonsGroup">
           <input className = "buttonsPlay" alt = "button rock" onClick={() => this.playerChoice(0)} type = "image" src = "./img/rock.png" />
           <input className = "buttonsPlay" alt = "button paper" onClick={() => this.playerChoice(1)} type = "image" src = "./img/paper.png" />
