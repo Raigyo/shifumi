@@ -66,10 +66,10 @@ class App extends Component {
         )
         {
           this.setState((preState) => {return {scoreRed : preState.scoreRed + 1}});
-          return " Red player wins ! "
+          return " red player wins ! "
         }
     this.setState((preState) => {return {scoreBlue : preState.scoreBlue + 1}});
-    return " Blue player wins !"
+    return " blue player wins !"
   }
 
   runGame = () => {
@@ -105,10 +105,10 @@ class App extends Component {
     let buttonNextDisplay;
     let buttonsChoiceDisplay;
     if (nextRound) {
-      buttonNextDisplay = <button onClick={this.nextRound} className="hud">Next round!!</button>
+      buttonNextDisplay = <button onClick={this.nextRound} className="hud">NEXT ROUND</button>
     }
     if (nextFight) {
-      buttonNextDisplay =  <button onClick={this.runGame} className="hud">Fight!</button>
+      buttonNextDisplay =  <button onClick={this.runGame} className="hud">FIGHT!</button>
     }
     if (buttonsChoice) {
       buttonsChoiceDisplay =
@@ -123,19 +123,24 @@ class App extends Component {
     }
     return (
       <div className="App">
-        <div className="hud">Round: {this.state.round} - Score red: {this.state.scoreRed} | Score blue: {this.state.scoreBlue}</div>
-        <PlayerCard
-        color="red"
-        symbol={this.state.playerRedDisplay}
-        />
-        <PlayerCard
-        color="blue"
-        symbol={this.state.playerBlueDisplay}
-        />
+        <div className="hud">ROUND: {this.state.round} </div>
+        <div className="hud">RED: {this.state.scoreRed} | BLUE {this.state.scoreBlue}</div>
+        <div className="sheldon"><img src="img/sheldon.gif" /></div>
+        <div id="cards" className="cards">
+            <PlayerCard
+                color="red"
+                symbol={this.state.playerRedDisplay}
+                />
+                <PlayerCard
+                color="blue"
+                symbol={this.state.playerBlueDisplay}
+                />
+      </div>
       {/*<p>Debug: {this.state.playerRed} {this.state.versus} {this.state.playerBlue}</p>*/}
         <div className="hud">{this.state.resultDisplay} {this.state.winner}</div>
         {buttonsChoiceDisplay}
         {buttonNextDisplay}
+
       </div>
     );
   }
