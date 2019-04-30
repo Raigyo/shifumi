@@ -5,7 +5,6 @@ const PlayerCard =({color, symbol})=> {
   const style ={
     backgroundColor: color,
     backgroundImage: "url(./img/" + symbol + ".png)"
-
   }
   return(
     <div style = {style} className="player-card">
@@ -27,6 +26,8 @@ class App extends Component {
       scoreBlue: 0,
       resultDisplay: "",
       nextRound: false,
+      nextFight: false,
+      buttonsChoice: true,
     }
   }
 
@@ -34,6 +35,7 @@ class App extends Component {
         this.setState({
           playerRed: this.symbols[move],
           playerBlue: this.symbols[Math.floor(Math.random()*5)],
+          nextFight: true,
         })
   }
 
@@ -43,6 +45,9 @@ class App extends Component {
       playerRedDisplay: this.state.playerRed,
       playerBlueDisplay: this.state.playerBlue,
       resultDisplay: this.state.playerRed + " versus " + this.state.playerBlue + " : ",
+      nextFight: false,
+      nextRound: true,
+      buttonsChoice: false,
     })
     if (playerRed === playerBlue){
       return " It's a draw !"
@@ -69,7 +74,7 @@ class App extends Component {
 
   runGame = () => {
     let counter =0
-    this.setState({nextRound: true})
+    this.setState({nextFight: false, buttonsChoice: false})
     let myInterval = setInterval(() => {
       counter++
 
@@ -81,46 +86,56 @@ class App extends Component {
   }
 
   nextRound = () => {
-
+    this.setState((preState) => {return {round : preState.round + 1}});
+    this.setState({
+      playerRedDisplay: this.symbols[0],
+      playerBlueDisplay: this.symbols[0],
+      nextFight: false,
+      nextRound: false,
+      buttonsChoice: true,
+      resultDisplay: "",
+      winner: "",
+    })
   }
 
   render(){
     const nextRound = this.state.nextRound;
-    let button;
+    const nextFight = this.state.nextFight;
+    const buttonsChoice = this.state.buttonsChoice;
+    let buttonNextDisplay;
+    let buttonsChoiceDisplay;
     if (nextRound) {
-      button = <button onClick={this.nextRound}>Next round!!</button>
+      buttonNextDisplay = <button onClick={this.nextRound} className="hud">Next round!!</button>
     }
-    else{
-      button =  <button onClick={this.runGame}>Fight!</button>
+    if (nextFight) {
+      buttonNextDisplay =  <button onClick={this.runGame} className="hud">Fight!</button>
     }
-    return (
-
-      <div className="App">
-        <p>Round: {this.state.round}</p>
-        <span>
-        Score: {this.state.scoreRed}
-        <PlayerCard
-        color="red"
-        symbol={this.state.playerRedDisplay}
-        />
-        </span>
-        <span>
-        Score: {this.state.scoreBlue}
-        <PlayerCard
-        color="blue"
-        symbol={this.state.playerBlueDisplay}
-        />
-        </span>
-      {/*<p>Debug: {this.state.playerRed} {this.state.versus} {this.state.playerBlue}</p>*/}
-      <p>{this.state.resultDisplay} {this.state.winner}</p>
-        <div className="buttonsGroup">
+    if (buttonsChoice) {
+      buttonsChoiceDisplay =
+      <div className="buttonsGroup" id="buttonsGroup">
+          <div className="hud">Choose your weapon:</div>
           <input className = "buttonsPlay" alt = "button rock" onClick={() => this.playerChoice(0)} type = "image" src = "./img/rock.png" />
           <input className = "buttonsPlay" alt = "button paper" onClick={() => this.playerChoice(1)} type = "image" src = "./img/paper.png" />
           <input className = "buttonsPlay" alt = "button scissors" onClick={() => this.playerChoice(2)} type = "image" src = "./img/scissors.png" />
           <input className = "buttonsPlay" alt = "button lizard" onClick={() => this.playerChoice(3)} type = "image" src = "./img/lizard.png" />
           <input className = "buttonsPlay" alt = "button spock" onClick={() => this.playerChoice(4)} type = "image" src = "./img/spock.png" />
-        </div>
-        {button}
+      </div>
+    }
+    return (
+      <div className="App">
+        <div className="hud">Round: {this.state.round} - Score red: {this.state.scoreRed} | Score blue: {this.state.scoreBlue}</div>
+        <PlayerCard
+        color="red"
+        symbol={this.state.playerRedDisplay}
+        />
+        <PlayerCard
+        color="blue"
+        symbol={this.state.playerBlueDisplay}
+        />
+      {/*<p>Debug: {this.state.playerRed} {this.state.versus} {this.state.playerBlue}</p>*/}
+        <div className="hud">{this.state.resultDisplay} {this.state.winner}</div>
+        {buttonsChoiceDisplay}
+        {buttonNextDisplay}
       </div>
     );
   }

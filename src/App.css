@@ -14,7 +14,7 @@
 }*/
 
 #root{
-  width: 40rem;
+  width: 80%;
   border: 2px solid #088;
   margin: 1rem auto;
   display: flex;
@@ -36,9 +36,6 @@
   background-repeat: no-repeat;
   background-position: center center;
   background-size: 50% auto;
-}
-
-.player-card:nth-child(2){
   -moz-transform: scaleX(-1);
   -o-transform: scaleX(-1);
   -webkit-transform: scaleX(-1);
@@ -47,12 +44,27 @@
   -ms-filter: "FlipH";
 }
 
+.player-card:nth-child(2){
+  -moz-transform: scaleX(1);
+  -o-transform: scaleX(1);
+  -webkit-transform: scaleX(1);
+  transform: scaleX(1);
+}
+
 .buttonsPlay{
   max-width: 50px;
 }
 
 .buttonsGroup{
   text-align: center;
+}
+
+.hud{
+  padding-bottom: 5px;
+  text-align: center;
+  font-size: 25px;
+  color: white;
+  text-shadow: 2px 2px 4px #000000;
 }
 
 button{
