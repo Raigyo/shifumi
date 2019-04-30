@@ -26,6 +26,7 @@ class App extends Component {
       scoreRed: 0,
       scoreBlue: 0,
       resultDisplay: "",
+      nextRound: false,
     }
   }
 
@@ -68,6 +69,7 @@ class App extends Component {
 
   runGame = () => {
     let counter =0
+    this.setState({nextRound: true})
     let myInterval = setInterval(() => {
       counter++
 
@@ -78,7 +80,19 @@ class App extends Component {
     },100)
   }
 
+  nextRound = () => {
+
+  }
+
   render(){
+    const nextRound = this.state.nextRound;
+    let button;
+    if (nextRound) {
+      button = <button onClick={this.nextRound}>Next round!!</button>
+    }
+    else{
+      button =  <button onClick={this.runGame}>Fight!</button>
+    }
     return (
 
       <div className="App">
@@ -106,7 +120,7 @@ class App extends Component {
           <input className = "buttonsPlay" alt = "button lizard" onClick={() => this.playerChoice(3)} type = "image" src = "./img/lizard.png" />
           <input className = "buttonsPlay" alt = "button spock" onClick={() => this.playerChoice(4)} type = "image" src = "./img/spock.png" />
         </div>
-        <button onClick={this.runGame}>Fight!</button>
+        {button}
       </div>
     );
   }
