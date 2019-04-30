@@ -19,15 +19,20 @@ class App extends Component {
     super(props)
     this.playerChoice = this.playerChoice.bind(this)
     this.symbols = ["rock", "paper", "scissors", "lizard", "spock"]
-    this.state = {playerRedDisplay: this.symbols[0], playerBlueDisplay: this.symbols[0]}
+    this.state = {
+      playerRedDisplay: this.symbols[0],
+      playerBlueDisplay: this.symbols[0],
+      round: 1,
+      scoreRed: 0,
+      scoreBlue: 0,
+      resultDisplay: "",
+    }
   }
 
   playerChoice = (move) => {
         this.setState({
           playerRed: this.symbols[move],
           playerBlue: this.symbols[Math.floor(Math.random()*5)],
-          winner: "",
-          versus: " versus "
         })
   }
 
@@ -36,10 +41,8 @@ class App extends Component {
     this.setState({
       playerRedDisplay: this.state.playerRed,
       playerBlueDisplay: this.state.playerBlue,
-      resultDisplay: this.state.playerRed + " versus " + this.state.playerBlue,
+      resultDisplay: this.state.playerRed + " versus " + this.state.playerBlue + " : ",
     })
-    console.log("playerRed: "+playerRed);
-    console.log("playerBlue: "+playerBlue);
     if (playerRed === playerBlue){
       return " It's a draw !"
     }
@@ -56,8 +59,10 @@ class App extends Component {
           (playerRed==="rock" && playerBlue ==="scissors")
         )
         {
+          this.setState((preState) => {return {scoreRed : preState.scoreRed + 1}});
           return " Red player wins ! "
         }
+    this.setState((preState) => {return {scoreBlue : preState.scoreBlue + 1}});
     return " Blue player wins !"
   }
 
@@ -65,6 +70,7 @@ class App extends Component {
     let counter =0
     let myInterval = setInterval(() => {
       counter++
+
       if(counter > 10){
         clearInterval(myInterval)
         this.setState({winner: this.decideWinner()})
@@ -74,18 +80,25 @@ class App extends Component {
 
   render(){
     return (
+
       <div className="App">
+        <p>Round: {this.state.round}</p>
+        <span>
+        Score: {this.state.scoreRed}
         <PlayerCard
         color="red"
         symbol={this.state.playerRedDisplay}
         />
+        </span>
+        <span>
+        Score: {this.state.scoreBlue}
         <PlayerCard
         color="blue"
         symbol={this.state.playerBlueDisplay}
         />
-      <p>Debug: {this.state.playerRed} {this.state.versus} {this.state.playerBlue}</p>
-      <p>{this.state.resultDisplay}</p>
-      <p>{this.state.winner}</p>
+        </span>
+      {/*<p>Debug: {this.state.playerRed} {this.state.versus} {this.state.playerBlue}</p>*/}
+      <p>{this.state.resultDisplay} {this.state.winner}</p>
         <div className="buttonsGroup">
           <input className = "buttonsPlay" alt = "button rock" onClick={() => this.playerChoice(0)} type = "image" src = "./img/rock.png" />
           <input className = "buttonsPlay" alt = "button paper" onClick={() => this.playerChoice(1)} type = "image" src = "./img/paper.png" />
@@ -93,7 +106,7 @@ class App extends Component {
           <input className = "buttonsPlay" alt = "button lizard" onClick={() => this.playerChoice(3)} type = "image" src = "./img/lizard.png" />
           <input className = "buttonsPlay" alt = "button spock" onClick={() => this.playerChoice(4)} type = "image" src = "./img/spock.png" />
         </div>
-        <button onClick={this.runGame}>Run Game</button>
+        <button onClick={this.runGame}>Fight!</button>
       </div>
     );
   }
