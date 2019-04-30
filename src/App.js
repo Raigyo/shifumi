@@ -105,10 +105,10 @@ class App extends Component {
     let buttonNextDisplay;
     let buttonsChoiceDisplay;
     if (nextRound) {
-      buttonNextDisplay = <button onClick={this.nextRound} className="hud">NEXT ROUND</button>
+      buttonNextDisplay = <div className="hud"><button onClick={this.nextRound}>NEXT ROUND</button></div>
     }
     if (nextFight) {
-      buttonNextDisplay =  <button onClick={this.runGame} className="hud">FIGHT!</button>
+      buttonNextDisplay =  <div className="hud"><button onClick={this.runGame}>FIGHT!</button></div>
     }
     if (buttonsChoice) {
       buttonsChoiceDisplay =
