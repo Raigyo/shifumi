@@ -47,6 +47,16 @@
   -ms-filter: "FlipH";
 }
 
+.buttonsPlay{
+  max-width: 50px;
+}
+
+.buttonsGroup{
+  position: relative;
+  display: inline-block;
+  text-align: center;
+}
+
 button{
   width: 25rem;
   border: 2px solid #fff;

@@ -17,13 +17,25 @@ const PlayerCard =({color, symbol})=> {
 class App extends Component {
   constructor(props){
     super(props)
+    this.playerChoice = this.playerChoice.bind(this)
     this.symbols = ["rock", "paper", "scissors", "lizard", "spock"]
     this.state = {}
   }
 
+  playerChoice = (move) => {
+        this.setState({
+          playerRed: this.symbols[move],
+          playerBlue: this.symbols[Math.floor(Math.random()*5)],
+          winner: "",
+          versus: " versus "
+        })
+  }
+
   decideWinner = () => {
     const {playerBlue, playerRed} = this.state
-    if (playerRed == playerBlue){
+    console.log("playerRed: "+playerRed);
+    console.log("playerBlue: "+playerBlue);
+    if (playerRed === playerBlue){
       return " It's a draw !"
     }
     if (
@@ -48,12 +60,6 @@ class App extends Component {
     let counter =0
     let myInterval = setInterval(() => {
       counter++
-      this.setState({
-        playerRed: this.symbols[Math.floor(Math.random()*5)],
-        playerBlue: this.symbols[Math.floor(Math.random()*5)],
-        winner: "",
-        versus: " versus "
-      })
       if(counter > 10){
         clearInterval(myInterval)
         this.setState({winner: this.decideWinner()})
@@ -73,8 +79,14 @@ class App extends Component {
         symbol={this.state.playerBlue}
         />
         <p>{this.state.playerRed} {this.state.versus} {this.state.playerBlue}</p>
-        <div className="sheldon"> </div>
         <p>{this.state.winner}</p>
+        <div className="buttonsGroup">
+          <input className = "buttonsPlay" alt = "button rock" onClick={() => this.playerChoice(0)} type = "image" src = "./img/rock.png" />
+          <input className = "buttonsPlay" alt = "button paper" onClick={() => this.playerChoice(1)} type = "image" src = "./img/paper.png" />
+          <input className = "buttonsPlay" alt = "button scissors" onClick={() => this.playerChoice(2)} type = "image" src = "./img/scissors.png" />
+          <input className = "buttonsPlay" alt = "button lizard" onClick={() => this.playerChoice(3)} type = "image" src = "./img/lizard.png" />
+          <input className = "buttonsPlay" alt = "button spock" onClick={() => this.playerChoice(4)} type = "image" src = "./img/spock.png" />
+        </div>
         <button onClick={this.runGame}>Run Game</button>
       </div>
     );
