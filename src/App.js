@@ -15,9 +15,9 @@ const PlayerCard =({color, symbol})=> {
   )
 }
 
-const PlayerSprite =({color, character, animation})=> {
+const PlayerSprite =({character, animation})=> {
   const style ={
-    backgroundColor: color,
+    //backgroundColor: color,
     backgroundImage: "url(./img/" + character + ".png)"
   }
   return(
@@ -82,10 +82,10 @@ class App extends Component {
         )
         {
           this.setState((preState) => {return {scoreRed : preState.scoreRed + 1}});
-          return " red player wins ! "
+          return " Ryu wins ! "
         }
     this.setState((preState) => {return {scoreBlue : preState.scoreBlue + 1}});
-    return " blue player wins !"
+    return " Chun-li wins !"
   }
 
   runGame = () => {
@@ -142,14 +142,13 @@ class App extends Component {
       <div className="hud" id="player-1">
         <div>RYU: {this.state.scoreRed}</div>
           <PlayerSprite
-          color="red"
           character="ryu"
           animation={this.state.animationPlayerOne}
           />
       </div>{/*\div player-1*/}
       <div className="App" id="App">
         <div className="hud">ROUND: {this.state.round} </div>
-        <div className="sheldon"><img src="img/sfversus.gif" alt=""/></div>
+        <div className="versus"><img src="img/versus.png" alt=""/></div>
         <div id="cards" className="cards">
             <PlayerCard
             color="red"
@@ -167,7 +166,6 @@ class App extends Component {
       <div className="hud" id="player-2">
         <div>CHUN-LI: {this.state.scoreBlue}</div>
         <PlayerSprite
-        color="blue"
         character="chun-li"
         animation={this.state.animationPlayerTwo}
         />
