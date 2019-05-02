@@ -4,20 +4,35 @@
   color: #fff;
 }
 
-.intro{
-  padding-left: 20%;
-  padding-right: 20%;
+p {
+  text-align: center;
+  min-height: 3.75rem;
 }
 
-/*.sheldon{
-  background-image: url("./img/sheldon.gif");
-}*/
+button{
+  width: 25rem;
+  /*border: 2px solid #fff;*/
+  cursor: pointer;
+  padding: 5px;
+  margin-top: 5px;
+  text-align: center;
+}
+
+button.hover {
+  background-color: #0cc;
+  transition: all 200ms ease-out;
+}
 
 #root{
-  width: 80%;
+  width: 100%;
   margin: 1rem auto;
   display: flex;
   justify-content: space-evenly;
+}
+
+.intro{
+  padding-left: 20%;
+  padding-right: 20%;
 }
 
 .player-card{
@@ -71,21 +86,52 @@
   padding-top: 25px;
 }
 
-button{
-  width: 25rem;
-  /*border: 2px solid #fff;*/
-  cursor: pointer;
-  padding: 5px;
-  margin-top: 5px;
-  text-align: center;
-}
 
-button.hover {
-  background-color: #0cc;
-  transition: all 200ms ease-out;
-}
 
-p {
-  text-align: center;
-  min-height: 3.75rem;
+/* Flexbox */
+
+#conteneur-flexbox{
+  display : -webkit-box;
+  display : -ms-flexbox;
+  display : flex;
+-ms-flex-wrap : wrap;
+  flex-wrap : wrap;
+-ms-flex-line-pack : stretch;
+  align-content : stretch;
+-webkit-box-align : stretch;
+  -ms-flex-align : stretch;
+  align-items : stretch;
+  width: 100%;
 }
+#player-1{
+  overflow : auto;
+  -webkit-box-flex : 0;
+  -ms-flex : 0 0 33.333%;
+  flex : 0 0 33.333%;
+  width : 33%;
+  /*max-width : 100px;*/
+}
+#App{
+  overflow : auto;
+  -webkit-box-flex : 1;
+  -ms-flex : 1 1 33.333%;
+  flex : 1 1 33.333%;
+  width : 33%;
+}
+#player-2{
+  overflow : auto;
+  -webkit-box-flex : 0;
+  -ms-flex : 0 0 33.333%;
+  flex : 0 0 33.333%;
+  width : 33%;
+  /*max-width : 100px;*/
+}
+/*
+#flexbox-4{
+  -webkit-box-flex : 0;
+  -ms-flex : 0 0 100%;
+  flex : 0 0 100%;
+  max-width : 100%;
+  min-width : 100%;
+}
+*/

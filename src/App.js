@@ -122,9 +122,12 @@ class App extends Component {
       </div>
     }
     return (
-      <div className="App">
-        <div className="hud">ROUND: {this.state.round} </div>
-        <div className="hud">RED: {this.state.scoreRed} | BLUE {this.state.scoreBlue}</div>
+    <div id="conteneur-flexbox">
+      <div className="hud" id="player-1">
+        Player 1: {this.state.scoreRed}
+      </div>{/*\div player-1*/}
+      <div className="App" id="App">
+        <div className="hud">ROUND: {this.state.round} </div>        
         <div className="sheldon"><img src="img/sheldon.gif" /></div>
         <div id="cards" className="cards">
             <PlayerCard
@@ -135,15 +138,17 @@ class App extends Component {
                 color="blue"
                 symbol={this.state.playerBlueDisplay}
                 />
-      </div>
-      {/*<p>Debug: {this.state.playerRed} {this.state.versus} {this.state.playerBlue}</p>*/}
+        </div>
         <div className="hud">{this.state.resultDisplay} {this.state.winner}</div>
         {buttonsChoiceDisplay}
         {buttonNextDisplay}
-
-      </div>
-    );
-  }
-}
+      </div>{/*\div app*/}
+      <div className="hud" id="player-2">
+        Player 2: {this.state.scoreBlue}
+      </div>{/*\div player-2*/}
+    </div>//\conteneur-flexbox
+      );
+  }//\render
+}//\class App
 
 export default App;
