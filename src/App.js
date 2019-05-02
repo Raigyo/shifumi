@@ -42,8 +42,8 @@ class App extends Component {
       nextRound: false,
       nextFight: false,
       buttonsChoice: true,
-      animationPlayerOne: "p1-idle",
-      animationPlayerTwo: "p2-idle",
+      animationPlayerOne: "p1-won",
+      animationPlayerTwo: "p2-won",
     }
   }
 
@@ -81,10 +81,10 @@ class App extends Component {
           (playerRed==="rock" && playerBlue ==="scissors")
         )
         {
-          this.setState((preState) => {return {scoreRed : preState.scoreRed + 1}});
+          this.setState((preState) => {return {scoreRed : preState.scoreRed + 1, animationPlayerOne: "p1-won", animationPlayerTwo: "p2-lost"}});
           return " Ryu wins ! "
         }
-    this.setState((preState) => {return {scoreBlue : preState.scoreBlue + 1}});
+    this.setState((preState) => {return {scoreBlue : preState.scoreBlue + 1, animationPlayerTwo: "p2-won", animationPlayerOne: "p1-lost"}});
     return " Chun-li wins !"
   }
 
@@ -111,6 +111,8 @@ class App extends Component {
       buttonsChoice: true,
       resultDisplay: "",
       winner: "",
+      animationPlayerOne: "p1-idle",
+      animationPlayerTwo: "p2-idle",
     })
   }
 

@@ -107,6 +107,59 @@ button.hover {
   to{background-position-x:-375px;}
 }
 
+.p1-lost{
+  width: 62px;
+  height: 72px;
+  transform:scale(3);
+  -ms-transform:scale(3); /* IE 9 */
+  -moz-transform:scale(3); /* Firefox */
+  -webkit-transform:scale(3); /* Safari and Chrome */
+  -o-transform:scale(3); /* Opera */
+  text-align: center;
+  line-height: 12.5rem;
+  position: relative;
+  display: inline-block;
+  /*border: 2px solid #fff;*/
+  margin-top: 150px;
+  animation: p1-lostX 1s steps(8) infinite,
+             p1-lostY 1s steps(1) infinite;
+}
+
+@keyframes p1-lostX {
+  from {background-position-y: 0px;}
+  to{background-position-x:-502px;}
+}
+@keyframes p1-lostY {
+  from {background-position-y: -212px;}
+  to {background-position-y: -212px;}
+}
+
+.p2-lost{
+  width: 62px;
+  height: 72px;
+  transform:scale(-3, 3);
+  -moz-transform: scale(-3, 3);
+  -o-transform: scale(-3, 3);
+  -webkit-transform: scale(-3, 3);
+  text-align: center;
+  line-height: 12.5rem;
+  position: relative;
+  display: inline-block;
+  /*border: 2px solid #fff;*/
+  margin-top: 150px;
+  animation: p2-lostX 1s steps(4) infinite,
+             p2-lostY 1s steps(1) infinite;
+}
+
+@keyframes p2-lostX {
+  from {background-position-y: 0px;}
+  to{background-position-x:-230px;}
+}
+@keyframes p2-lostY {
+  from {background-position-y: -2080px;}
+  to {background-position-y: -2080px;}
+}
+
 .cards{
   text-align: center;
 }
