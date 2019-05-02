@@ -1,5 +1,5 @@
 *{
-  background-color: #fff;
+  background-color: #00008B;
   font-family: sans-serif;
   color: #fff;
 }
@@ -60,6 +60,46 @@ button.hover {
   transform: scaleX(-1);
   filter: FlipH;
   -ms-filter: "FlipH";
+}
+
+.p1-idle{
+  width: 68px;
+  height: 75px;
+  text-align: center;
+  line-height: 12.5rem;
+  position: relative;
+  display: inline-block;
+  border: 2px solid #fff;
+  margin-top: 150px;
+  animation: p1-idle 2s steps(7) infinite;
+}
+
+.p2-idle{
+  width: 68px;
+  height: 75px;
+  text-align: center;
+  line-height: 12.5rem;
+  position: relative;
+  display: inline-block;
+  border: 2px solid #fff;
+  margin-top: 150px;
+  -moz-transform: scaleX(-1);
+  -o-transform: scaleX(-1);
+  -webkit-transform: scaleX(-1);
+  transform: scaleX(-1);
+  filter: FlipH;
+  -ms-filter: "FlipH";
+  animation: p2-idle 1s steps(6) infinite;
+}
+
+@keyframes p1-idle {
+  from{background-position-x:0px;}
+  to{background-position-x:-430px;}
+}
+
+@keyframes p2-idle {
+  from{background-position-x:0px;}
+  to{background-position-x:-375px;}
 }
 
 .cards{

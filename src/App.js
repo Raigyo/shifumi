@@ -15,15 +15,15 @@ const PlayerCard =({color, symbol})=> {
   )
 }
 
-const PlayerSprite =({color, character})=> {
+const PlayerSprite =({color, character, animation})=> {
   const style ={
     backgroundColor: color,
     backgroundImage: "url(./img/" + character + ".png)"
   }
   return(
-    <div style = {style} className="character">
+      <div style = {style} className = {animation}>
       {/*{symbol}*/}
-    </div>
+      </div>
   )
 }
 
@@ -42,6 +42,8 @@ class App extends Component {
       nextRound: false,
       nextFight: false,
       buttonsChoice: true,
+      animationPlayerOne: "p1-idle",
+      animationPlayerTwo: "p2-idle",
     }
   }
 
@@ -138,15 +140,16 @@ class App extends Component {
     return (
     <div id="conteneur-flexbox">
       <div className="hud" id="player-1">
-        <div>Player 1: {this.state.scoreRed}</div>
+        <div>RYU: {this.state.scoreRed}</div>
           <PlayerSprite
           color="red"
           character="ryu"
+          animation={this.state.animationPlayerOne}
           />
       </div>{/*\div player-1*/}
       <div className="App" id="App">
         <div className="hud">ROUND: {this.state.round} </div>
-        <div className="sheldon"><img src="img/sheldon.gif" alt=""/></div>
+        <div className="sheldon"><img src="img/sfversus.gif" alt=""/></div>
         <div id="cards" className="cards">
             <PlayerCard
             color="red"
@@ -162,10 +165,11 @@ class App extends Component {
         {buttonNextDisplay}
       </div>{/*\div app*/}
       <div className="hud" id="player-2">
-        <div>Player 2: {this.state.scoreBlue}</div>
+        <div>CHUN-LI: {this.state.scoreBlue}</div>
         <PlayerSprite
         color="blue"
         character="chun-li"
+        animation={this.state.animationPlayerTwo}
         />
       </div>{/*\div player-2*/}
     </div>//\conteneur-flexbox
