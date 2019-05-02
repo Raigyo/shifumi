@@ -76,7 +76,7 @@ button.hover {
   display: inline-block;
   /*border: 2px solid #fff;*/
   margin-top: 150px;
-  animation: p1-idle 1s steps(4) infinite;
+  animation: p1-idle 2s steps(4) infinite;
 }
 
 .p2-idle{
@@ -94,7 +94,7 @@ button.hover {
   margin-top: 150px;
   /*filter: FlipH;
   -ms-filter: "FlipH";*/
-  animation: p2-idle 1s steps(6) infinite;
+  animation: p2-idle 2s steps(6) infinite;
 }
 
 @keyframes p1-idle {
@@ -121,7 +121,7 @@ button.hover {
   display: inline-block;
   /*border: 2px solid #fff;*/
   margin-top: 150px;
-  animation: p1-lostX 1s steps(8) infinite,
+  animation: p1-lostX 2s steps(8) infinite,
              p1-lostY 1s steps(1) infinite;
 }
 
@@ -131,7 +131,6 @@ button.hover {
 }
 @keyframes p1-lostY {
   from {background-position-y: -212px;}
-  to {background-position-y: -212px;}
 }
 
 .p2-lost{
@@ -147,7 +146,7 @@ button.hover {
   display: inline-block;
   /*border: 2px solid #fff;*/
   margin-top: 150px;
-  animation: p2-lostX 1s steps(4) infinite,
+  animation: p2-lostX 2s steps(4) infinite,
              p2-lostY 1s steps(1) infinite;
 }
 
@@ -157,7 +156,57 @@ button.hover {
 }
 @keyframes p2-lostY {
   from {background-position-y: -2080px;}
-  to {background-position-y: -2080px;}
+}
+
+.p1-won{
+  width: 60px;
+  height: 70px;
+  transform:scale(3);
+  -ms-transform:scale(3); /* IE 9 */
+  -moz-transform:scale(3); /* Firefox */
+  -webkit-transform:scale(3); /* Safari and Chrome */
+  -o-transform:scale(3); /* Opera */
+  text-align: center;
+  line-height: 12.5rem;
+  position: relative;
+  display: inline-block;
+  /*border: 2px solid #fff;*/
+  margin-top: 150px;
+  animation: p1-wonX 2s steps(7) infinite,
+             p1-wonY 1s steps(1) infinite;
+}
+
+@keyframes p1-wonX {
+  from{background-position-x:0px;}
+  to{background-position-x:-415px;}
+}
+@keyframes p1-wonY {
+  from {background-position-y: -75px;}
+}
+
+.p2-won{
+  width: 62px;
+  height: 72px;
+  transform:scale(-3, 3);
+  -moz-transform: scale(-3, 3);
+  -o-transform: scale(-3, 3);
+  -webkit-transform: scale(-3, 3);
+  text-align: center;
+  line-height: 12.5rem;
+  position: relative;
+  display: inline-block;
+  /*border: 2px solid #fff;*/
+  margin-top: 150px;
+  animation: p2-wonX 2s steps(5) infinite,
+             p2-wonY 0.5s steps(1) infinite;
+}
+
+@keyframes p2-wonX {
+  from{background-position-x: 0px;}
+  to{background-position-x:-325px;}
+}
+@keyframes p2-wonY {
+  from {background-position-y: -296px;}
 }
 
 .cards{

@@ -42,8 +42,8 @@ class App extends Component {
       nextRound: false,
       nextFight: false,
       buttonsChoice: true,
-      animationPlayerOne: "p1-won",
-      animationPlayerTwo: "p2-won",
+      animationPlayerOne: "p1-idle",
+      animationPlayerTwo: "p2-idle",
     }
   }
 
