@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
+/*import ryu from '/img/ryu.png';
+console.log(ryu);*/
 
 const PlayerCard =({color, symbol})=> {
   const style ={
@@ -8,6 +10,18 @@ const PlayerCard =({color, symbol})=> {
   }
   return(
     <div style = {style} className="player-card">
+      {/*{symbol}*/}
+    </div>
+  )
+}
+
+const PlayerSprite =({color, character})=> {
+  const style ={
+    backgroundColor: color,
+    backgroundImage: "url(./img/" + character + ".png)"
+  }
+  return(
+    <div style = {style} className="character">
       {/*{symbol}*/}
     </div>
   )
@@ -124,27 +138,35 @@ class App extends Component {
     return (
     <div id="conteneur-flexbox">
       <div className="hud" id="player-1">
-        Player 1: {this.state.scoreRed}
+        <div>Player 1: {this.state.scoreRed}</div>
+          <PlayerSprite
+          color="red"
+          character="ryu"
+          />
       </div>{/*\div player-1*/}
       <div className="App" id="App">
-        <div className="hud">ROUND: {this.state.round} </div>        
-        <div className="sheldon"><img src="img/sheldon.gif" /></div>
+        <div className="hud">ROUND: {this.state.round} </div>
+        <div className="sheldon"><img src="img/sheldon.gif" alt=""/></div>
         <div id="cards" className="cards">
             <PlayerCard
-                color="red"
-                symbol={this.state.playerRedDisplay}
-                />
-                <PlayerCard
-                color="blue"
-                symbol={this.state.playerBlueDisplay}
-                />
+            color="red"
+            symbol={this.state.playerRedDisplay}
+            />
+            <PlayerCard
+            color="blue"
+            symbol={this.state.playerBlueDisplay}
+            />
         </div>
         <div className="hud">{this.state.resultDisplay} {this.state.winner}</div>
         {buttonsChoiceDisplay}
         {buttonNextDisplay}
       </div>{/*\div app*/}
       <div className="hud" id="player-2">
-        Player 2: {this.state.scoreBlue}
+        <div>Player 2: {this.state.scoreBlue}</div>
+        <PlayerSprite
+        color="blue"
+        character="chun-li"
+        />
       </div>{/*\div player-2*/}
     </div>//\conteneur-flexbox
       );
