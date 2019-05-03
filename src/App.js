@@ -44,6 +44,8 @@ class App extends Component {
       buttonsChoice: true,
       animationPlayerOne: "p1-idle",
       animationPlayerTwo: "p2-idle",
+      healthRyu: 100,
+      healthChun: 100,
     }
   }
 
@@ -81,11 +83,23 @@ class App extends Component {
           (playerRed==="rock" && playerBlue ==="scissors")
         )
         {
-          this.setState((preState) => {return {scoreRed : preState.scoreRed + 1, animationPlayerOne: "p1-won", animationPlayerTwo: "p2-lost"}});
-          return " Ryu wins ! "
+          if (this.state.healthChun !== 20){
+            this.setState((preState) => {return {scoreRed : preState.scoreRed + 1, healthChun : preState.healthChun -20, animationPlayerOne: "p1-won", animationPlayerTwo: "p2-lost"}});
+            return " Ryu strikes ! "
+          }
+          if (this.state.healthChun === 20){
+            this.setState((preState) => {return {scoreRed : preState.scoreRed + 1, healthChun : preState.healthChun -20, animationPlayerOne: "p1-won", animationPlayerTwo: "p2-lost"}});
+            return " Ryu wins ! "
+          }
         }
-    this.setState((preState) => {return {scoreBlue : preState.scoreBlue + 1, animationPlayerTwo: "p2-won", animationPlayerOne: "p1-lost"}});
-    return " Chun-li wins !"
+    if (this.state.healthRyu !== 20){
+      this.setState((preState) => {return {scoreBlue : preState.scoreBlue + 1, healthRyu : preState.healthRyu -20, animationPlayerTwo: "p2-won", animationPlayerOne: "p1-lost"}});
+      return " Chun-li strikes !"
+    }
+    if (this.state.healthRyu === 20){
+      this.setState((preState) => {return {scoreBlue : preState.scoreBlue + 1, healthRyu : preState.healthRyu -20, animationPlayerTwo: "p2-won", animationPlayerOne: "p1-lost"}});
+      return " Chun-li wins !"
+    }
   }
 
   runGame = () => {
@@ -145,6 +159,7 @@ class App extends Component {
       <div className="title" id="title"><img src="img/socket-fighter.png" alt=""/></div>
       <div className="hud" id="player-1">
         <div>RYU: {this.state.scoreRed}</div>
+        <div><progress id="health-ryu" className="health" value={`${this.state.healthRyu}`} max="100"></progress></div>
           <PlayerSprite
           character="ryu"
           animation={this.state.animationPlayerOne}
@@ -170,6 +185,7 @@ class App extends Component {
       </div>{/*\div app*/}
       <div className="hud" id="player-2">
         <div>CHUN-LI: {this.state.scoreBlue}</div>
+        <div><progress id="health-chun" className="health" value={`${this.state.healthChun}`} max="100"></progress></div>
         <PlayerSprite
         character="chun-li"
         animation={this.state.animationPlayerTwo}
