@@ -286,8 +286,8 @@ button.hover {
 }
 
 .p1-lost{
-  width: 62px;
-  height: 72px;
+  width: 58px;
+  height: 68px;
   transform:scale(3);
   -ms-transform:scale(3); /* IE 9 */
   -moz-transform:scale(3); /* Firefox */
@@ -304,11 +304,11 @@ button.hover {
 }
 
 @keyframes p1-lostX {
-  from {background-position-y: 0px;}
-  to{background-position-x:-502px;}
+  from {background-position-y: -25px;}
+  to{background-position-x:-508px;}
 }
 @keyframes p1-lostY {
-  from {background-position-y: -212px;}
+  from {background-position-y: -214px;}
 }
 
 .p2-lost{
