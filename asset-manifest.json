@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/shifumi/static/css/main.a80aae83.chunk.css",
+    "main.js": "/shifumi/static/js/main.688cf520.chunk.js",
+    "main.js.map": "/shifumi/static/js/main.688cf520.chunk.js.map",
+    "runtime~main.js": "/shifumi/static/js/runtime~main.f9261637.js",
+    "runtime~main.js.map": "/shifumi/static/js/runtime~main.f9261637.js.map",
+    "static/js/2.4e81ba5b.chunk.js": "/shifumi/static/js/2.4e81ba5b.chunk.js",
+    "static/js/2.4e81ba5b.chunk.js.map": "/shifumi/static/js/2.4e81ba5b.chunk.js.map",
+    "index.html": "/shifumi/index.html",
+    "precache-manifest.ea847b7c9d2c5f9bde6f2a1d74ed3bcf.js": "/shifumi/precache-manifest.ea847b7c9d2c5f9bde6f2a1d74ed3bcf.js",
+    "service-worker.js": "/shifumi/service-worker.js",
+    "static/css/main.a80aae83.chunk.css.map": "/shifumi/static/css/main.a80aae83.chunk.css.map"
+  }
+}
