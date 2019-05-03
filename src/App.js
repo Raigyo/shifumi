@@ -39,9 +39,10 @@ class App extends Component {
       scoreRed: 0,
       scoreBlue: 0,
       resultDisplay: "",
-      nextRound: false,
+      nextMove: false,
       nextFight: false,
       buttonsChoice: true,
+      nextRound: false,
       animationPlayerOne: "p1-idle",
       animationPlayerTwo: "p2-idle",
       healthRyu: 100,
@@ -64,8 +65,9 @@ class App extends Component {
       playerBlueDisplay: this.state.playerBlue,
       resultDisplay: this.state.playerRed + " versus " + this.state.playerBlue + " : ",
       nextFight: false,
-      nextRound: true,
+      nextMove: true,
       buttonsChoice: false,
+      nextRound: false,
     })
     if (playerRed === playerBlue){
       return " It's a draw !"
@@ -88,7 +90,7 @@ class App extends Component {
             return " Ryu strikes ! "
           }
           if (this.state.healthChun === 20){
-            this.setState((preState) => {return {scoreRed : preState.scoreRed + 1, healthChun : preState.healthChun -20, animationPlayerOne: "p1-won", animationPlayerTwo: "p2-lost"}});
+            this.setState((preState) => {return {scoreRed : preState.scoreRed + 1, healthChun : preState.healthChun -20, nextMove: false, nextFight: false, nextRound: true, animationPlayerOne: "p1-won", animationPlayerTwo: "p2-lost"}});
             return " Ryu wins ! "
           }
         }
@@ -97,7 +99,7 @@ class App extends Component {
       return " Chun-li strikes !"
     }
     if (this.state.healthRyu === 20){
-      this.setState((preState) => {return {scoreBlue : preState.scoreBlue + 1, healthRyu : preState.healthRyu -20, animationPlayerTwo: "p2-won", animationPlayerOne: "p1-lost"}});
+      this.setState((preState) => {return {scoreBlue : preState.scoreBlue + 1, healthRyu : preState.healthRyu -20, nextMove: false, nextFight: false, nextRound: true, animationPlayerTwo: "p2-won", animationPlayerOne: "p1-lost"}});
       return " Chun-li wins !"
     }
   }
@@ -115,13 +117,13 @@ class App extends Component {
     },100)
   }
 
-  nextRound = () => {
-    this.setState((preState) => {return {round : preState.round + 1}});
+  nextMove = () => {
+    //this.setState((preState) => {return {round : preState.round + 1}});
     this.setState({
       playerRedDisplay: this.symbols[0],
       playerBlueDisplay: this.symbols[0],
       nextFight: false,
-      nextRound: false,
+      nextMove: false,
       buttonsChoice: true,
       resultDisplay: "",
       winner: "",
@@ -131,13 +133,15 @@ class App extends Component {
   }
 
   render(){
-    const nextRound = this.state.nextRound;
+    const nextMove = this.state.nextMove;
     const nextFight = this.state.nextFight;
+    const nextRound = this.state.nextRound;
     const buttonsChoice = this.state.buttonsChoice;
     let buttonNextDisplay;
     let buttonsChoiceDisplay;
-    if (nextRound) {
-      buttonNextDisplay = <div className="hud"><button onClick={this.nextRound}>NEXT ROUND</button></div>
+    let buttonNextRound;
+    if (nextMove) {
+      buttonNextDisplay = <div className="hud"><button onClick={this.nextMove}>NEXT MOVE</button></div>
     }
     if (nextFight) {
       buttonNextDisplay =  <div className="hud"><button onClick={this.runGame}>FIGHT!</button></div>
@@ -153,6 +157,12 @@ class App extends Component {
           <input className = "buttonsPlay" alt = "button spock" onClick={() => this.playerChoice(4)} type = "image" src = "./img/spock.png" />
     </div>
     }
+    if (nextRound) {
+      buttonNextRound =
+        <div className="hud">
+          <button>PLAY NEXT ROUND</button>
+        </div>
+      }
     return (
 
     <div id="conteneur-flexbox">
@@ -182,6 +192,7 @@ class App extends Component {
         <div className="hud">{this.state.resultDisplay} {this.state.winner}</div>
         {buttonsChoiceDisplay}
         {buttonNextDisplay}
+        {buttonNextRound}
       </div>{/*\div app*/}
       <div className="hud" id="player-2">
         <div>CHUN-LI: {this.state.scoreBlue}</div>
