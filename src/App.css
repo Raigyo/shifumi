@@ -13,7 +13,7 @@ p {
 }
 
 button{
-  width: 25rem;
+  width: 200px;
   /*border: 2px solid #fff;*/
   cursor: pointer;
   padding: 5px;
@@ -33,6 +33,7 @@ button.hover {
   /*margin: 1rem auto;*/
   display: flex;
   justify-content: space-evenly;
+  border-radius: 25px;
 }
 
 .intro{
@@ -311,8 +312,8 @@ button.hover {
 }
 
 .p2-lost{
-  width: 62px;
-  height: 72px;
+  width: 60px;
+  height: 70px;
   transform:scale(-3, 3);
   -moz-transform: scale(-3, 3);
   -o-transform: scale(-3, 3);
@@ -557,6 +558,7 @@ button.hover {
   color: white;
   text-shadow: 2px 2px 4px #000000;
   text-align: center;
+  align: center;
 }
 
 .title{
