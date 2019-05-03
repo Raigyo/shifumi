@@ -137,7 +137,7 @@ class App extends Component {
           <input className = "buttonsPlay" alt = "button scissors" onClick={() => this.playerChoice(2)} type = "image" src = "./img/scissors.png" />
           <input className = "buttonsPlay" alt = "button lizard" onClick={() => this.playerChoice(3)} type = "image" src = "./img/lizard.png" />
           <input className = "buttonsPlay" alt = "button spock" onClick={() => this.playerChoice(4)} type = "image" src = "./img/spock.png" />
-      </div>
+    </div>
     }
     return (
 
@@ -152,7 +152,7 @@ class App extends Component {
       </div>{/*\div player-1*/}
       <div className="App" id="App">
         <div className="hud">ROUND: {this.state.round} </div>
-        <div className="versus"><img src="img/versus.png" alt=""/></div>
+
         <div id="cards" className="cards">
             <PlayerCard
             color="red"
@@ -163,6 +163,7 @@ class App extends Component {
             symbol={this.state.playerBlueDisplay}
             />
         </div>
+        <div className="versus"><img src="img/versus.png" alt=""/></div>
         <div className="hud">{this.state.resultDisplay} {this.state.winner}</div>
         {buttonsChoiceDisplay}
         {buttonNextDisplay}

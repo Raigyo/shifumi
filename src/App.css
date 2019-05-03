@@ -1,7 +1,10 @@
 body{
-  background-color: #00008B;
+  background-color: #000;
   font-family: sans-serif;
   color: #fff;
+  margin: 50px;
+  padding-left: 200px;
+  padding-right: 200px;
 }
 
 p {
@@ -24,8 +27,10 @@ button.hover {
 }
 
 #root{
-  width: 80%;
-  margin: 1rem auto;
+  width: 100%;
+  height: 100%;
+  background-color: #00008B;
+  /*margin: 1rem auto;*/
   display: flex;
   justify-content: space-evenly;
 }
@@ -198,77 +203,10 @@ button.hover {
   animation: textShadow 1.6s infinite;
 }
 
-/* buttons */
+/*buttons */
 
-$bg: #333;
-$push-color: hsla(10, 90%, 40%, 1);
 
-$push-size: 240px;
 
-[class*="push"] {
-  position: relative;
-  display: inline-block;
-  width: $push-size;
-  height: $push-size;
-  border: 0;
-  margin: 1em;
-  outline: none;
-  background-color: $push-color;
-  border-radius: 50%;
-  cursor: pointer;
-  transition: box-shadow 200ms;
-}
-.push--flat {
-  box-shadow:
-    inset 0 $push-size/32 0 lighten($push-color, 5%),
-    inset 0 (-$push-size/32) 0 darken($push-color, 5%),
-    inset 0 0 0 $push-size/32 darken($push-color, 3%),
-    inset 0 0 0 $push-size/12 $push-color,
-    inset 0 0 0 $push-size/10 darken($push-color, 20%),
-    inset 0 0 0 $push-size/9.2 darken($push-color, 50%),
-    inset 0 0 0 $push-size/7.5 transparentize(lighten($push-color, 30%), .3),
-    inset 0 0 0 $push-size/5.5 $push-color,
-    inset 0 $push-size/2.5 $push-size/7.5 darken($push-color, 5%),
-    inset 0 0 $push-size/10 $push-size/6 darken($push-color, 10%),
-    0 $push-size/20 0 rgba(0, 0, 0, .3);
-
-  &:after {
-    content: '';
-    position: absolute;
-    bottom: $push-size/20;
-    left: $push-size/10;
-    display: block;
-    width: $push-size/1.25;
-    height: $push-size/1.25;
-    border: $push-size/15 solid rgba(0, 0, 0, .3);
-    border-width: 0 0 $push-size/15;
-    border-radius: 50%;
-    transition-duration: 200ms;
-  }
-
-  &:active,
-  // &:hover,
-  &.is-pushed {
-    box-shadow:
-      inset 0 $push-size/32 0 lighten($push-color, 5%),
-      inset 0 (-$push-size/32) 0 darken($push-color, 5%),
-      inset 0 0 0 $push-size/32 darken($push-color, 3%),
-      inset 0 0 0 $push-size/12 $push-color,
-      inset 0 0 0 $push-size/10 darken($push-color, 20%),
-      inset 0 0 0 $push-size/8.5 darken($push-color, 40%),
-      inset 0 0 0 $push-size/7.5 transparentize(lighten($push-color, 30%), .8),
-      inset 0 0 0 $push-size/5.5 darken($push-color, 3%),
-      inset 0 $push-size/2.5 $push-size/7.5 darken($push-color, 8%),
-      inset 0 0 $push-size/10 $push-size/6 darken($push-color, 15%),
-      0 $push-size/20 0 rgba(0, 0, 0, .3);
-    background-color: darken($push-color, 2%);
-
-    &:after {
-      bottom: $push-size/20 + $push-size/15;
-      border-width: 0;
-    }
-  }
-}
 
 /* move displaying */
 
@@ -314,7 +252,7 @@ $push-size: 240px;
   position: relative;
   display: inline-block;
   /*border: 2px solid #fff;*/
-  margin-top: 150px;
+  margin-top: 200px;
   animation: p1-idle 2s steps(4) infinite;
 }
 
@@ -330,7 +268,7 @@ $push-size: 240px;
   position: relative;
   display: inline-block;
   /*border: 2px solid #fff;*/
-  margin-top: 150px;
+  margin-top: 200px;
   /*filter: FlipH;
   -ms-filter: "FlipH";*/
   animation: p2-idle 2s steps(6) infinite;
@@ -359,7 +297,7 @@ $push-size: 240px;
   position: relative;
   display: inline-block;
   /*border: 2px solid #fff;*/
-  margin-top: 150px;
+  margin-top: 200px;
   animation: p1-lostX 2s steps(8) infinite,
              p1-lostY 1s steps(1) infinite;
 }
@@ -384,7 +322,7 @@ $push-size: 240px;
   position: relative;
   display: inline-block;
   /*border: 2px solid #fff;*/
-  margin-top: 150px;
+  margin-top: 200px;
   animation: p2-lostX 2s steps(4) infinite,
              p2-lostY 1s steps(1) infinite;
 }
@@ -410,7 +348,7 @@ $push-size: 240px;
   position: relative;
   display: inline-block;
   /*border: 2px solid #fff;*/
-  margin-top: 150px;
+  margin-top: 200px;
   animation: p1-wonX 2s steps(7) infinite,
              p1-wonY 1s steps(1) infinite;
 }
@@ -435,7 +373,7 @@ $push-size: 240px;
   position: relative;
   display: inline-block;
   /*border: 2px solid #fff;*/
-  margin-top: 150px;
+  margin-top: 200px;
   animation: p2-wonX 2s steps(5) infinite,
              p2-wonY 0.5s steps(1) infinite;
 }
@@ -446,6 +384,56 @@ $push-size: 240px;
 }
 @keyframes p2-wonY {
   from {background-position-y: -296px;}
+}
+
+/* Flexbox */
+
+#conteneur-flexbox{
+  display : -webkit-box;
+  display : -ms-flexbox;
+  display : flex;
+-ms-flex-wrap : wrap;
+  flex-wrap : wrap;
+-ms-flex-line-pack : stretch;
+  align-content : stretch;
+-webkit-box-align : stretch;
+  -ms-flex-align : stretch;
+  align-items : stretch;
+  align-content: start;
+  width: 100%;
+  height: 600px;
+}
+
+#title{
+  -webkit-box-flex : 0;
+  -ms-flex : 0 0 100%;
+  flex : 0 0 100%;
+  max-width : 100%;
+  min-width : 100%;
+}
+
+#player-1{
+  overflow : auto;
+  -webkit-box-flex : 0;
+  -ms-flex : 0 0 33.333%;
+  flex : 0 0 33.333%;
+  width : 33%;
+  /*max-width : 100px;*/
+}
+#App{
+  /*overflow : auto;*/
+  -webkit-box-flex : 1;
+  -ms-flex : 1 1 33.333%;
+  flex : 1 1 33.333%;
+  width : 33%;
+}
+#player-2{
+  overflow : auto;
+  -webkit-box-flex : 0;
+  -ms-flex : 0 0 33.333%;
+  flex : 0 0 33.333%;
+  width : 33%;
+  /*max-width : 100px;*/
 }
 
 /* Layout */
@@ -477,60 +465,3 @@ $push-size: 240px;
 .versus{
   text-align: center;
 }
-
-/* Flexbox */
-
-#conteneur-flexbox{
-  display : -webkit-box;
-  display : -ms-flexbox;
-  display : flex;
--ms-flex-wrap : wrap;
-  flex-wrap : wrap;
--ms-flex-line-pack : stretch;
-  align-content : stretch;
--webkit-box-align : stretch;
-  -ms-flex-align : stretch;
-  align-items : stretch;
-  width: 100%;
-}
-
-#title{
-  -webkit-box-flex : 0;
-  -ms-flex : 0 0 100%;
-  flex : 0 0 100%;
-  max-width : 100%;
-  min-width : 100%;
-}
-
-#player-1{
-  overflow : auto;
-  -webkit-box-flex : 0;
-  -ms-flex : 0 0 33.333%;
-  flex : 0 0 33.333%;
-  width : 33%;
-  /*max-width : 100px;*/
-}
-#App{
-  overflow : auto;
-  -webkit-box-flex : 1;
-  -ms-flex : 1 1 33.333%;
-  flex : 1 1 33.333%;
-  width : 33%;
-}
-#player-2{
-  overflow : auto;
-  -webkit-box-flex : 0;
-  -ms-flex : 0 0 33.333%;
-  flex : 0 0 33.333%;
-  width : 33%;
-  /*max-width : 100px;*/
-}
-/*
-#flexbox-4{
-  -webkit-box-flex : 0;
-  -ms-flex : 0 0 100%;
-  flex : 0 0 100%;
-  max-width : 100%;
-  min-width : 100%;
-}
-*/
