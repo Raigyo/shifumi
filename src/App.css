@@ -1,4 +1,4 @@
-*{
+body{
   background-color: #00008B;
   font-family: sans-serif;
   color: #fff;
@@ -191,11 +191,83 @@ button.hover {
   right: 0;
   background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%), linear-gradient(90deg, rgba(255, 0, 0, 0.06), rgba(0, 255, 0, 0.02), rgba(0, 0, 255, 0.06));
   z-index: 2;
-  background-size: 100% 2px, 3px 100%;
+  background-size: 100% 4px, 3px 100%;
   pointer-events: none;
 }
 .crt {
   animation: textShadow 1.6s infinite;
+}
+
+/* buttons */
+
+$bg: #333;
+$push-color: hsla(10, 90%, 40%, 1);
+
+$push-size: 240px;
+
+[class*="push"] {
+  position: relative;
+  display: inline-block;
+  width: $push-size;
+  height: $push-size;
+  border: 0;
+  margin: 1em;
+  outline: none;
+  background-color: $push-color;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: box-shadow 200ms;
+}
+.push--flat {
+  box-shadow:
+    inset 0 $push-size/32 0 lighten($push-color, 5%),
+    inset 0 (-$push-size/32) 0 darken($push-color, 5%),
+    inset 0 0 0 $push-size/32 darken($push-color, 3%),
+    inset 0 0 0 $push-size/12 $push-color,
+    inset 0 0 0 $push-size/10 darken($push-color, 20%),
+    inset 0 0 0 $push-size/9.2 darken($push-color, 50%),
+    inset 0 0 0 $push-size/7.5 transparentize(lighten($push-color, 30%), .3),
+    inset 0 0 0 $push-size/5.5 $push-color,
+    inset 0 $push-size/2.5 $push-size/7.5 darken($push-color, 5%),
+    inset 0 0 $push-size/10 $push-size/6 darken($push-color, 10%),
+    0 $push-size/20 0 rgba(0, 0, 0, .3);
+
+  &:after {
+    content: '';
+    position: absolute;
+    bottom: $push-size/20;
+    left: $push-size/10;
+    display: block;
+    width: $push-size/1.25;
+    height: $push-size/1.25;
+    border: $push-size/15 solid rgba(0, 0, 0, .3);
+    border-width: 0 0 $push-size/15;
+    border-radius: 50%;
+    transition-duration: 200ms;
+  }
+
+  &:active,
+  // &:hover,
+  &.is-pushed {
+    box-shadow:
+      inset 0 $push-size/32 0 lighten($push-color, 5%),
+      inset 0 (-$push-size/32) 0 darken($push-color, 5%),
+      inset 0 0 0 $push-size/32 darken($push-color, 3%),
+      inset 0 0 0 $push-size/12 $push-color,
+      inset 0 0 0 $push-size/10 darken($push-color, 20%),
+      inset 0 0 0 $push-size/8.5 darken($push-color, 40%),
+      inset 0 0 0 $push-size/7.5 transparentize(lighten($push-color, 30%), .8),
+      inset 0 0 0 $push-size/5.5 darken($push-color, 3%),
+      inset 0 $push-size/2.5 $push-size/7.5 darken($push-color, 8%),
+      inset 0 0 $push-size/10 $push-size/6 darken($push-color, 15%),
+      0 $push-size/20 0 rgba(0, 0, 0, .3);
+    background-color: darken($push-color, 2%);
+
+    &:after {
+      bottom: $push-size/20 + $push-size/15;
+      border-width: 0;
+    }
+  }
 }
 
 /* move displaying */
@@ -421,6 +493,15 @@ button.hover {
   align-items : stretch;
   width: 100%;
 }
+
+#title{
+  -webkit-box-flex : 0;
+  -ms-flex : 0 0 100%;
+  flex : 0 0 100%;
+  max-width : 100%;
+  min-width : 100%;
+}
+
 #player-1{
   overflow : auto;
   -webkit-box-flex : 0;

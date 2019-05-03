@@ -140,7 +140,9 @@ class App extends Component {
       </div>
     }
     return (
+
     <div id="conteneur-flexbox">
+      <div className="title" id="title"><img src="img/socket-fighter.png" alt=""/></div>
       <div className="hud" id="player-1">
         <div>RYU: {this.state.scoreRed}</div>
           <PlayerSprite
