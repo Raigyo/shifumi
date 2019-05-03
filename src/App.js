@@ -43,8 +43,8 @@ class App extends Component {
       nextFight: false,
       buttonsChoice: true,
       nextRound: false,
-      animationPlayerOne: "p1-idle",
-      animationPlayerTwo: "p2-idle",
+      animationPlayerOne: "p1-wonRound",
+      animationPlayerTwo: "p2-wonRound",
       healthRyu: 100,
       healthChun: 100,
     }
@@ -90,7 +90,7 @@ class App extends Component {
             return " Ryu strikes ! "
           }
           if (this.state.healthChun === 20){
-            this.setState((preState) => {return {scoreRed : preState.scoreRed + 1, healthChun : preState.healthChun -20, nextMove: false, nextFight: false, nextRound: true, animationPlayerOne: "p1-won", animationPlayerTwo: "p2-lost"}});
+            this.setState((preState) => {return {scoreRed : preState.scoreRed + 1, healthChun : preState.healthChun -20, nextMove: false, nextFight: false, nextRound: true, animationPlayerOne: "p1-wonRound", animationPlayerTwo: "p2-lostRound"}});
             return " Ryu wins ! "
           }
         }
@@ -99,7 +99,7 @@ class App extends Component {
       return " Chun-li strikes !"
     }
     if (this.state.healthRyu === 20){
-      this.setState((preState) => {return {scoreBlue : preState.scoreBlue + 1, healthRyu : preState.healthRyu -20, nextMove: false, nextFight: false, nextRound: true, animationPlayerTwo: "p2-won", animationPlayerOne: "p1-lost"}});
+      this.setState((preState) => {return {scoreBlue : preState.scoreBlue + 1, healthRyu : preState.healthRyu -20, nextMove: false, nextFight: false, nextRound: true, animationPlayerTwo: "p2-wonRound", animationPlayerOne: "p1-lostRound"}});
       return " Chun-li wins !"
     }
   }
