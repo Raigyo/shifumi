@@ -1,7 +1,7 @@
 import React, {Component} from 'react';
 import './App.css';
-/*import ryu from '/img/ryu.png';
-console.log(ryu);*/
+
+/* const with that displays the move of the player */
 
 const PlayerCard =({color, symbol})=> {
   const style ={
@@ -15,6 +15,8 @@ const PlayerCard =({color, symbol})=> {
   )
 }
 
+/* const that displays the characters animations */
+
 const PlayerSprite =({character, animation})=> {
   const style ={
     //backgroundColor: color,
@@ -26,6 +28,8 @@ const PlayerSprite =({character, animation})=> {
       </div>
   )
 }
+
+/* constructor with all the states of the game */
 
 class App extends Component {
   constructor(props){
@@ -50,6 +54,8 @@ class App extends Component {
     }
   }
 
+  /* function to make a move*/
+
   playerChoice = (move) => {
         this.setState({
           playerRed: this.symbols[move],
@@ -57,6 +63,8 @@ class App extends Component {
           nextFight: true,
         })
   }
+
+/* function to launch the next round */
 
   runNextRound = () => {
         this.setState((preState) => {return {round : preState.round + 1}});
@@ -75,6 +83,8 @@ class App extends Component {
           healthChun: 100,
         })
   }
+
+  /* function to decide winner + if the round is finished */
 
   decideWinner = () => {
     const {playerBlue, playerRed} = this.state
@@ -122,6 +132,8 @@ class App extends Component {
     }
   }
 
+  /* function to launch a game */
+
   runGame = () => {
     let counter =0
     this.setState({nextFight: false, buttonsChoice: false})
@@ -134,6 +146,8 @@ class App extends Component {
       }
     },100)
   }
+
+  /* function that reset some states after a move */
 
   nextMove = () => {
     //this.setState((preState) => {return {round : preState.round + 1}});
