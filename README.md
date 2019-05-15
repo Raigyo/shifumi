@@ -1,7 +1,7 @@
 # Shifumi test using React JS
 [Githubpage](https://raigyo.github.io/shifumi/)
 
-Play with the computer.
+Play 'shifumi' with the computer. (It's the lizard - spock version).
 
 It's a preparatory work for a group work at Becode.
 
